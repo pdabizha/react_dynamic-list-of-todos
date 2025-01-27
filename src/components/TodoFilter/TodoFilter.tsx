@@ -30,7 +30,7 @@ export const TodoFilter: React.FC<Props> = ({ todoList, onFilterChange }) => {
 
   useEffect(() => {
     filterTodos();
-  }, [query, status]);
+  }, [query, status, todoList]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
