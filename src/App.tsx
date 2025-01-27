@@ -24,7 +24,6 @@ export const App: React.FC = () => {
         setFullTodos(todosList);
         setTodos(todosList);
       } catch (error) {
-        console.error('Error fetching todos:', error);
       } finally {
         setLoading(false);
       }
