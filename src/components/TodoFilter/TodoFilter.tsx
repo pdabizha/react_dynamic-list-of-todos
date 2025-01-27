@@ -30,7 +30,7 @@ export const TodoFilter: React.FC<Props> = ({ todoList, onFilterChange }) => {
 
   useEffect(() => {
     filterTodos();
-  }, [filterTodos]);
+  }, [query, status]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
@@ -73,14 +73,16 @@ export const TodoFilter: React.FC<Props> = ({ todoList, onFilterChange }) => {
           <i className="fas fa-magnifying-glass" />
         </span>
 
-        <span className="icon is-right" style={{ pointerEvents: 'all' }}>
-          <button
-            data-cy="clearSearchButton"
-            type="button"
-            className="delete"
-            onClick={handleClearSearch}
-          />
-        </span>
+        {query !== '' && (
+          <span className="icon is-right" style={{ pointerEvents: 'all' }}>
+            <button
+              data-cy="clearSearchButton"
+              type="button"
+              className="delete"
+              onClick={handleClearSearch}
+            />
+          </span>
+        )}
       </p>
     </form>
   );
